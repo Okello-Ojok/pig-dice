@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>PIG DICE GAME</title>
   </head>
   <body>
@@ -12,13 +12,16 @@
       <div class="row">
         <div class="col-xs-12 col-md-4 player1">
           <form id="player-1">
-            <label for="name1"></label>
+            <label id="showName1" for="name1">Player One Please Enter Your Name</label>
             <input id="name1" type="text" name="" placeholder="Player 1 name">
-            <button type="submit" class="btn btn-primary" name="button">Submit</button>
+            <button type="submit" class="btn btn-primary btn1" name="button">Submit</button>
           </form>
+
         </div>
         <div class="col-xs-12 col-md-4 turnScore">
+          <div class="showTurnScore">
 
+          </div>
         </div>
         <div class="col-xs-12 col-md-4 player2">
           <form id="player-2">
