@@ -6,7 +6,7 @@ function Player(name, turnScores, totalScores) {
   this.totalScores = totalScores;
 }
 
-function Roll() {
+function roll() {
   return Math.floor(Math.random()*6)+1;
 }
 
@@ -27,6 +27,13 @@ $(document).ready(function () {
     $("input#name1").hide();
     $(".btn1").hide();
     $("label#showName1").text("Player Name: " + player1);
+    $("#roll, #hold").show();
+
+    $("#roll").click(function () {
+      $("button#show").text(roll());
+      console.log(roll());
+    })
+
 
   })
 
