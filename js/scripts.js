@@ -1,4 +1,7 @@
 //BUSINESS LOGIC
+let score = 0;
+let turnScore = 0
+let totalScore = 0;
 
 function Player(name, turnScores, totalScores) {
   this.name = name;
@@ -7,10 +10,19 @@ function Player(name, turnScores, totalScores) {
 }
 
 function roll() {
-  return Math.floor(Math.random()*6)+1;
+
+  let dice = Math.floor(Math.random() * 6) + 1;
+
+  if (dice === 1) {
+    return score;
+  } else {
+    return turnScore = turnScore + dice;
+  }
 }
 
-
+function hold() {
+  return totalScore = totalScore + turnScore;
+}
 
 
 
@@ -20,8 +32,8 @@ function roll() {
 
 
 //UI LOGIC
-$(document).ready(function () {
-  $("form#player-1").submit(function (event) {
+$(document).ready(function() {
+  $("form#player-1").submit(function(event) {
     event.preventDefault();
     let player1 = $("input#name1").val();
     $("input#name1").hide();
@@ -29,9 +41,12 @@ $(document).ready(function () {
     $("label#showName1").text("Player Name: " + player1);
     $("#roll, #hold").show();
 
-    $("#roll").click(function () {
+    $("#roll").click(function() {
       $("button#show").text(roll());
-      console.log(roll());
+      //console.log(roll());
+    })
+    $("#hold").click(function () {
+      $("button#tot").text(hold());
     })
 
 
