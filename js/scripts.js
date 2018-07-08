@@ -2,6 +2,7 @@
 let score = 0;
 let turnScore = 0
 let totalScore = 0;
+let sumScore = [];
 
 function Player(name, turnScores, totalScores) {
   this.name = name;
@@ -11,13 +12,20 @@ function Player(name, turnScores, totalScores) {
 
 function roll() {
 
+
   let dice = Math.floor(Math.random() * 6) + 1;
 
   if (dice === 1) {
-    return score;
+    //return score;
+    sumScore.push(score);
   } else {
-    return turnScore = turnScore + dice;
+    //return turnScore = turnScore + dice;
+    sumScore.push(dice);
+
   }
+  //return sumScore;
+  return sumScore.reduce((a, b) => a + b, 0);
+
 }
 
 function hold() {
@@ -44,12 +52,17 @@ $(document).ready(function() {
     $("#roll").click(function() {
       $("button#show").text(roll());
       //console.log(roll());
+      console.log(sumScore);
     })
     $("#hold").click(function () {
       $("button#tot").text(hold());
+
     })
 
 
   })
+
+
+
 
 })
