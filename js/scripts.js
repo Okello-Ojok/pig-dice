@@ -24,8 +24,8 @@ function roll() {
 
   }
   //return sumScore;
-  return sumScore.reduce((a, b) => a + b, 0);
-
+  turnScore = sumScore.reduce((a, b) => a + b, 0);
+  return turnScore;
 }
 
 function hold() {
@@ -51,11 +51,14 @@ $(document).ready(function() {
 
     $("#roll").click(function() {
       $("button#show").text(roll());
+      
       //console.log(roll());
       console.log(sumScore);
     })
     $("#hold").click(function () {
       $("button#tot").text(hold());
+      $("#roll").prop('disabled', true);
+      $(this).prop('disabled', true);
 
     })
 
